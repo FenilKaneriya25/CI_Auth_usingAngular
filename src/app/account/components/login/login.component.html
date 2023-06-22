@@ -1,0 +1,73 @@
+<mat-grid-list cols="3" rowHeight="fit" style="height: 100%">
+  <mat-grid-tile colspan="2">
+    <app-banner> </app-banner>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <form [formGroup]="loginForm" class="login_data w-75">
+      <mat-label class="email_text">Email Address</mat-label>
+      <input
+        class="email_inp w-100"
+        matInput
+        type="email"
+        placeholder="evan.donohue@gmail.com"
+        formControlName="email"
+      />
+
+      <mat-error>{{
+        validationService.getError(loginForm, "email", ValidationMessages.Login)
+      }}</mat-error>
+
+      <br /><br />
+
+      <mat-label class="password_text">Password</mat-label>
+      <div class="password_container">
+        <input
+          class="password_inp w-100"
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="**********"
+          formControlName="password"
+        />
+        <button
+          class="hideButton"
+          mat-icon-button
+          matSuffix
+          (click)="togglePasswordVisibility()"
+        >
+          <mat-icon class="hideButton">{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </div>
+
+      <mat-error>{{
+        validationService.getError(
+          loginForm,
+          "password",
+          ValidationMessages.Login
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <button
+        type="submit"
+        id="loginButton"
+        class="login_btn w-100"
+        mat-raised-button
+        (click)="login()"
+      >
+        Login
+      </button>
+
+      <mat-card-content class="lost_pass">
+        <a routerLink="lost-password">Lost your password?</a>
+      </mat-card-content>
+      <mat-card-content class="create_acc">
+        Don't have an account?
+        <a class="underline" routerLink="registration">Create an account</a>
+      </mat-card-content>
+      <mat-card-content class="privacy">Privacy Policy</mat-card-content>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

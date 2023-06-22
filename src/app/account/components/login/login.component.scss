@@ -1,0 +1,142 @@
+.image_text {
+    position: relative;
+    height: 100vh;
+  }
+  .image-1{
+    height: 100vh; 
+    width: auto;
+  }
+  .text {
+      position: absolute;
+      z-index: 0;
+      top: 75%;
+      color: white;
+      right: 30%;
+      left: 10%;
+  }
+   .text1 {
+      font-size: 40px;
+  
+  } 
+  
+  
+  .login_data {
+    /* width: 25rem; */
+    height: 344px;
+  }
+  .email_text {
+    /* position: relative; */
+    /* margin-top: 319px; 
+    /* width: 102px; */
+    height: 22px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #414141;
+    opacity: 1;
+  }
+  .email_inp {
+    /* width: 401px; */
+    margin-top: 1vh;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+  }
+  .password_inp {
+    /* width: 401px; */
+    margin-top: 1vh;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+  }
+  input:focus{
+    border : 1px solid #2b64b1;
+    outline: none;
+  }
+  input{
+    padding-left: 10px;
+  }
+  .login_btn {
+    color: #f88634;
+    background-color: white;
+    /* width: 401px; */
+    height: 50px;
+    border: 2px solid #f88634;
+    border-radius: 24px;
+  }
+  .lost_pass {
+   
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #414141;
+  }
+  .lost_pass a {
+    color: #414141;
+    text-decoration: none;
+  }
+  .create_acc {
+    margin-top: 1vh;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #414141;
+  }
+  .privacy {
+      margin-top: 180px;
+      font-size: 13px;
+      text-align: center;
+      letter-spacing: 0px;
+      color: #414141;
+  }
+  
+  
+  @media only screen and (max-width: 768px){
+    .privacy{
+      margin-top: 0px;
+    }
+  }
+  @media only screen and (max-width: 1230px){
+    .text1 {
+      font-size: 30px;
+      top: 55%;
+    }
+  
+  }
+  @media only screen and (max-width: 580px){
+    .text1 {
+      font-size: 20px;
+    }
+    .text2 {
+      font-size: 13px;
+    }
+    .text {
+      top: 50%;
+    }
+  
+  }
+  @media(max-width:580px){
+    .image-1{
+      height: 80vh; 
+      width: auto;
+    }
+    .image_text{
+      height: 85vh;
+    }
+  
+  }
+  .error_message {
+    color: red;
+  }
+  
+  .password_container {
+    position: relative;
+  }
+  
+  .hideButton {
+    position: absolute;
+    top: 63%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  

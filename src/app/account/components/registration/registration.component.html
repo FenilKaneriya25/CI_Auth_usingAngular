@@ -1,0 +1,162 @@
+<mat-grid-list cols="3" rowHeight="fit" style="height: 100%">
+  <mat-grid-tile colspan="2">
+    <app-banner> </app-banner>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <form [formGroup]="registrationForm" class="content w-75">
+      <!------------------ first name  ----------------->
+
+      <mat-label class="fname">First Name</mat-label>
+      <input
+        class="fname_inp w-100"
+        matInput
+        type="text"
+        placeholder="evan"
+        formControlName="firstName"
+      />
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "firstName",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <!------------------ last name  ----------------->
+      <mat-label class="lname">Last Name</mat-label>
+      <input
+        class="lname_inp w-100"
+        matInput
+        type="text"
+        placeholder="donohue"
+        formControlName="lastName"
+      />
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "lastName",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <!------------------ Phone Number  ----------------->
+      <mat-label class="phone">Phone Number</mat-label>
+      <input
+        class="phone_inp w-100"
+        matInput
+        type="tel"
+        placeholder="8923454615"
+        formControlName="phoneNumber"
+        [maxlength]="10"
+        (keydown)="restrictInput($event)"
+      />
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "phoneNumber",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <!------------------ Email Address  ----------------->
+      <mat-label class="email_text">Email Address</mat-label>
+      <input
+        class="email_inp w-100"
+        matInput
+        type="email"
+        placeholder="evan.donohue@gmail.com"
+        formControlName="email"
+      />
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "email",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <!------------------ Password ----------------->
+      <mat-label class="password_text">Password</mat-label>
+      <input
+        class="password_inp w-100"
+        matInput
+        type="password"
+        placeholder="**********"
+        formControlName="password"
+      />
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "password",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <br /><br />
+      <!------------------ Confirm Password ----------------->
+
+      <mat-label class="confirm">Confirm Password</mat-label>
+      <div class="password_container">
+        <input
+          class="confirm_inp w-100"
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="**********"
+          formControlName="confirmPassword"
+        />
+        <button
+          class="hideButton"
+          mat-icon-button
+          matSuffix
+          (click)="togglePasswordVisibility()"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </div>
+
+      <mat-error>{{
+        validationService.getError(
+          registrationForm,
+          "confirmPassword",
+          ValidationMessages.Registration
+        )
+      }}</mat-error>
+
+      <mat-error
+        *ngIf="registrationForm.get('confirmPassword')?.errors?.['passwordMismatch'] && registrationForm.get('confirmPassword')?.dirty"
+      >
+        Passwords do not match.
+      </mat-error>
+      <br /><br />
+      <button
+        type="submit"
+        id="registerButton"
+        class="register_btn w-100"
+        mat-raised-button
+        (click)="registration()"
+      >
+        Register
+      </button>
+
+      <mat-card-content class="lost_pass">
+        <a routerLink="/lost-password">Lost your password?</a>
+      </mat-card-content>
+      <mat-card-content class="already">
+        Already registered? <a class="underline" routerLink="">Login now</a>
+      </mat-card-content>
+      <mat-card-content class="privacy">Privacy Policy</mat-card-content>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

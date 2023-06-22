@@ -1,0 +1,51 @@
+.image_text {
+    position: relative;
+    height: 100vh;
+  }
+  .image-1{
+    height: 100vh; 
+    width: auto;
+  }
+  .text {
+      position: absolute;
+      z-index: 0;
+      top: 75%;
+      color: white;
+      right: 30%;
+      left: 10%;
+  }
+   .text1 {
+      font-size: 40px;
+  
+  } 
+  
+
+@media only screen and (max-width: 1230px){
+    .text1 {
+      font-size: 30px;
+      top: 55%;
+    }
+  
+  }
+  @media only screen and (max-width: 580px){
+    .text1 {
+      font-size: 20px;
+    }
+    .text2 {
+      font-size: 13px;
+    }
+    .text {
+      top: 50%;
+    }
+  
+  }
+  @media(max-width:580px){
+    .image-1{
+      height: 80vh; 
+      width: auto;
+    }
+    .image_text{
+      height: 85vh;
+    }
+  
+  }
